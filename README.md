@@ -25,4 +25,4 @@ npm i -D \
 
 The code in this repository is based on:
 
-- [Webpack for Vue 3Vue Loader Documentation](https://lmiller1990.github.io/electic/posts/20200406_webpack_for_vue_3.html)
+- [Webpack for Vue 3](https://lmiller1990.github.io/electic/posts/20200406_webpack_for_vue_3.html)
