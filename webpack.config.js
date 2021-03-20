@@ -1,8 +1,9 @@
 const path = require("path");
 const { VueLoaderPlugin } = require("vue-loader");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
-module.exports = {
+module.exports = (env) => ({
   output: {
     path: path.resolve(process.cwd(), "dist"),
   },
@@ -15,6 +16,9 @@ module.exports = {
       template: "./public/index.html",
       chunks: ["main"],
       filename: `index.html`,
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
     }),
   ],
   module: {
@@ -30,6 +34,18 @@ module.exports = {
           appendTsSuffixTo: [/\.vue$/],
         },
       },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          "css-loader",
+          {
+            loader: "postcss-loader",
+          },
+        ],
+      },
     ],
   },
   devServer: {
@@ -41,4 +57,4 @@ module.exports = {
     stats: "minimal",
     liveReload: true,
   },
-};
+});

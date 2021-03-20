@@ -1,6 +1,6 @@
 <template>
   <div>Vue app take 1</div>
-  <div>{{ greeting }}</div>
+  <div class="bg-yellow-100">{{ greeting }}</div>
 </template>
 
 <script lang="ts">
@@ -17,3 +17,9 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</style>
